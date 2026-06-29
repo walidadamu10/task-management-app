@@ -1,0 +1,20 @@
+<div class="centered-content">
+  <div class="white-box">
+      <h1 class="title">
+          EDIT TASK LIST
+      </h1>
+
+      <div class="field is-grouped">
+          <p class="control is-expanded">
+            <input #ListTitleInput class="input is-medium" type="text" placeholder="Add a new list name" [(ngModel)]="newListTitle">
+          </p>
+          <p class="control button-container">
+            <button class="button is-primary has-text-white is-medium" (click)="updateList()">
+              Save
+            </button>
+          </p>
+      </div>
+
+      <button routerLink="/" class="button is-medium" style="margin-top: 30px ;"> Back </button>
+  </div>
+</div>

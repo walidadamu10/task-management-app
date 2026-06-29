@@ -1,0 +1,31 @@
+.centered-content {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.modal-box {
+    min-height: 250px;
+    width: 100%;
+    max-width: 650px;
+    background: rgb(235, 232, 232);
+    padding: 40px;
+
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Adjust the margin value as needed */
+    color: red;
+}
+
+/* Center the input text within the box and add margin */
+.input {
+    margin-top: 20px; /* Adjust the margin value as needed */
+}

@@ -1,0 +1,87 @@
+<div class="centered-content">
+    <div class="task-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-grey">
+                Task lists
+            </h1>
+
+            <div class="task-list-menu">
+                <a class="task-list-menu-items" *ngFor=" let list of TaskLists" [routerLink]="['/TaskLists', list._id]" routerLinkActive="is-active">
+                    <p> {{list.title}} </p>
+                </a>
+                
+                
+            </div>
+
+            <button class="button has-text-white" routerLink="/add-list">+ Add Task List </button>
+
+        </div>
+
+        <div class="task-list-container has-background-light">
+            <div *ngIf="Tasks">
+                <div class="top-bar">
+                    <h1 class="title has-text-grey">
+                        Tasks to do
+                    </h1>
+                    <div class="dropdown is-hoverable is-right">
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true">
+                            <span>EDIT/DELETE</span>
+                            <span class="icon is-small">
+                              <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                          <div class="dropdown-content">
+                            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                                <div class="dropdown-content">
+                                  <a [routerLink]="['/edit-list', selectedListId]" class="dropdown-item"> EDIT TASK </a>
+                                  <a (click)="DeleteListClick()" class="dropdown-item has-text-danger"> DELETE TASK </a>
+                    
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                </div>
+                
+                
+                <!-- Task to do list elements-->
+    
+                <div class="task-to-do-elements" *ngFor="let task of Tasks" (click)="onTaskClick(task)" [ngClass]="{'completed': task.completed }">
+                  <div class="task-text">
+                    <p>
+                      {{task.title}}
+                    </p>
+                    <div class="task-buttons">
+                      <div class="button is-right" [routerLink]="['/TaskLists', selectedListId, 'edit-task', task._id]" style="margin-right: 30px;">EDIT</div>
+
+                      <div class="button is-danger is-right" (click)="DeleteTaskClick(task._id)" >DELETE</div>
+                      
+
+                    </div>
+
+
+                  </div>
+                    
+                </div>
+
+                <h3 class="no-list-state-2" *ngIf="Tasks.length ===0 ">There are no tasks! Click the add  task list button to add a task</h3>
+    
+                <button routerLink="./new-task" class="add-button button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div >
+            
+            <div *ngIf="!Tasks">
+                <h3 class="no-list-state">PLEASE SELECT A TASK LIST FROM THE SIDEBAR</h3>
+            </div>
+        </div>
+    </div>
+</div>
