@@ -1,0 +1,11 @@
+Hello!
+
+This is the folder that contains the code for both the backend(API) and the front-end.
+
+Make sure to run npm install in both folders in the terminal to install dependencies.
+
+Run "nodemon app.js" in the API directory in the terminal to start the database. Make sure nodemon is installed first.
+
+Then run "ng serve" in the front-end directory in the terminal to serve the application. Make sure angular is also installed first.
+
+Locate to localhost4200 in the browser to use the application. Thank you!!!
